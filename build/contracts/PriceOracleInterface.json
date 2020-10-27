@@ -1,0 +1,313 @@
+{
+  "contractName": "PriceOracleInterface",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "hToken",
+          "type": "address"
+        }
+      ],
+      "name": "getUnderlyingPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"hToken\",\"type\":\"address\"}],\"name\":\"getUnderlyingPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"getUnderlyingPrice(address)\":{\"params\":{\"hToken\":\"The hToken to get the underlying price of\"},\"returns\":{\"_0\":\"The underlying asset price mantissa (scaled by 1e18). Zero means the price is unavailable.\"}}}},\"userdoc\":{\"methods\":{\"getUnderlyingPrice(address)\":{\"notice\":\"Get the underlying price of a hToken asset\"}}}},\"settings\":{\"compilationTarget\":{\"/hades/evm-contracts/src/interfaces/PriceOracleInterface.sol\":\"PriceOracleInterface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/hades/evm-contracts/src/interfaces/PriceOracleInterface.sol\":{\"keccak256\":\"0x4ee6eb77527003ade36f8ca6b85976ee58a559a14f671d76a99b428402e5b644\",\"urls\":[\"bzz-raw://8d574c408a26fa1d6cbaec681c6a716c918b80b2e7ea79021041da202a96b062\",\"dweb:/ipfs/Qmej5kBdQVNhNFM999u8xGottac9nLzmryddoYBwtqDXz3\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.0;\n\ninterface PriceOracleInterface {\n\t/**\n\t * @notice Get the underlying price of a hToken asset\n\t * @param hToken The hToken to get the underlying price of\n\t * @return The underlying asset price mantissa (scaled by 1e18).\n\t *  Zero means the price is unavailable.\n\t */\n\tfunction getUnderlyingPrice(address hToken) external view returns (uint256);\n}\n",
+  "sourcePath": "/hades/evm-contracts/src/interfaces/PriceOracleInterface.sol",
+  "ast": {
+    "absolutePath": "/hades/evm-contracts/src/interfaces/PriceOracleInterface.sol",
+    "exportedSymbols": {
+      "PriceOracleInterface": [
+        15564
+      ]
+    },
+    "id": 15565,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15556,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:21"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 15564,
+        "linearizedBaseContracts": [
+          15564
+        ],
+        "name": "PriceOracleInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@notice Get the underlying price of a hToken asset\n@param hToken The hToken to get the underlying price of\n@return The underlying asset price mantissa (scaled by 1e18).\n Zero means the price is unavailable.",
+            "functionSelector": "fc57d4df",
+            "id": 15563,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getUnderlyingPrice",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 15559,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15558,
+                  "name": "hToken",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15563,
+                  "src": "320:14:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15557,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "320:7:21",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "319:16:21"
+            },
+            "returnParameters": {
+              "id": 15562,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15561,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15563,
+                  "src": "359:7:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15560,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "359:7:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "358:9:21"
+            },
+            "scope": 15564,
+            "src": "292:76:21",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 15565,
+        "src": "25:345:21"
+      }
+    ],
+    "src": "0:371:21"
+  },
+  "legacyAST": {
+    "absolutePath": "/hades/evm-contracts/src/interfaces/PriceOracleInterface.sol",
+    "exportedSymbols": {
+      "PriceOracleInterface": [
+        15564
+      ]
+    },
+    "id": 15565,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15556,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:21"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 15564,
+        "linearizedBaseContracts": [
+          15564
+        ],
+        "name": "PriceOracleInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@notice Get the underlying price of a hToken asset\n@param hToken The hToken to get the underlying price of\n@return The underlying asset price mantissa (scaled by 1e18).\n Zero means the price is unavailable.",
+            "functionSelector": "fc57d4df",
+            "id": 15563,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getUnderlyingPrice",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 15559,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15558,
+                  "name": "hToken",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15563,
+                  "src": "320:14:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15557,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "320:7:21",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "319:16:21"
+            },
+            "returnParameters": {
+              "id": 15562,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15561,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15563,
+                  "src": "359:7:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15560,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "359:7:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "358:9:21"
+            },
+            "scope": 15564,
+            "src": "292:76:21",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 15565,
+        "src": "25:345:21"
+      }
+    ],
+    "src": "0:371:21"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.0+commit.26b70077.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.4",
+  "updatedAt": "2020-10-27T11:40:57.814Z",
+  "devdoc": {
+    "methods": {
+      "getUnderlyingPrice(address)": {
+        "params": {
+          "hToken": "The hToken to get the underlying price of"
+        },
+        "returns": {
+          "_0": "The underlying asset price mantissa (scaled by 1e18). Zero means the price is unavailable."
+        }
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {
+      "getUnderlyingPrice(address)": {
+        "notice": "Get the underlying price of a hToken asset"
+      }
+    }
+  }
+}

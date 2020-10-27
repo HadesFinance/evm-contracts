@@ -1,0 +1,28 @@
+{
+  "name": "evm-contracts",
+  "version": "1.0.0",
+  "description": "Contracts on evm platform",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "solc": "^0.6.0",
+    "truffle": "^5.1.43",
+    "truffle-hdwallet-provider": "^1.0.17"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HadesFinance/hades-protocol.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HadesFinance/hades-protocol/issues"
+  },
+  "homepage": "https://github.com/HadesFinance/hades-protocol#readme"
+}
