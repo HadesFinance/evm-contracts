@@ -28,6 +28,7 @@ module.exports = {
       },
       network_id: 1,
       gas: 4000000,
+      gasPrice: env.live.gasPrice,
     },
   }
 };
