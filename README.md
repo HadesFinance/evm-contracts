@@ -1,7 +1,9 @@
 # EVM Contracts Of Hades Protocol
 
 Hades Protocol is a Lightweight decentralized Stable Currency Protocol based on Two-way Lending market, with automatic interest rate target and liquidity mining incentive.
+
 You can read the [whitepaper](https://hades.finance/hades-protocol-whitepaper.pdf) for the motivation and a complete description of the protocol.
+
 This repository contains the core smart contract code that implement the Ampleforth protocol on the Ethereum blockchain.
 
 ## Table of Contents
