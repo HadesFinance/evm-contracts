@@ -1,5 +1,5 @@
+const expectThrow = require('./util/expect-throw')
 const HDS = artifacts.require('HDS')
-const expectFail = require('./util/expect-fail')
 
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -41,13 +41,13 @@ contract('HDS:mint', accounts => {
     before('setup HDS contract', deployContracts)
 
     it('should fail to mint for the admin account', async () => {
-        await expectFail(hds.mint(accounts[2], 1e8))
+        await expectThrow(hds.mint(accounts[2], 1e8))
     })
 
     it('should be ok minting by the superior', async () => {
         const user = accounts[2]
         await hds.initialize(superior)
-        await expectFail(hds.initialize(user))
+        await expectThrow(hds.initialize(user))
 
         const mintAmount = 100e8
         await hds.mint(user, mintAmount, {from: superior})
@@ -55,11 +55,11 @@ contract('HDS:mint', accounts => {
     })
 
     it('should fail to mint if exceeding the max supply', async () => {
-        await expectFail(hds.mint(accounts[2], 21000000e8, { from: superior }))
+        await expectThrow(hds.mint(accounts[2], 21000000e8, { from: superior }))
     })
 
     it('should fail to mint to zero address', async () => {
-        await expectFail(hds.mint(ZERO_ADDRESS, 1e8, { from: superior }))
+        await expectThrow(hds.mint(ZERO_ADDRESS, 1e8, { from: superior }))
     })
 })
 
@@ -74,12 +74,12 @@ contract('HDS:burn', accounts => {
     })
 
     it('should fail to burn if balance is insufficient', async () => {
-        await expectFail(hds.burn(user1, 101e8, { from: user1 }))
+        await expectThrow(hds.burn(user1, 101e8, { from: user1 }))
     })
 
     it('should fail to burn if allowance is insufficient', async () => {
         await hds.approve(admin, 10e8, { from: user1 })
-        await expectFail(hds.burn(user1, 11e8, { from: admin }))
+        await expectThrow(hds.burn(user1, 11e8, { from: admin }))
     })
 
     it('should be ok burning if balance is sufficient', async () => {
@@ -94,7 +94,7 @@ contract('HDS:burn', accounts => {
     })
 
     it('should fail to burn from zero address', async () => {
-        await expectFail(hds.burn(ZERO_ADDRESS, 1e8, { from: user1 }))
+        await expectThrow(hds.burn(ZERO_ADDRESS, 1e8, { from: user1 }))
     })
 })
 
@@ -112,11 +112,11 @@ contract('HDS:transfer', accounts => {
     })
 
     it('should fail to transfer if balance is insufficient', async () => {
-        await expectFail(hds.transfer(admin, 101e8, { from: user1 }))
+        await expectThrow(hds.transfer(admin, 101e8, { from: user1 }))
     })
 
     it('should fail to transfer if allowance is insufficient', async () => {
-        await expectFail(hds.transferFrom(user1, admin, 11e8, { from: admin }))
+        await expectThrow(hds.transferFrom(user1, admin, 11e8, { from: admin }))
     })
 
     it('should be ok to transfer if balance is sufficient', async () => {
@@ -131,11 +131,11 @@ contract('HDS:transfer', accounts => {
     })
 
     it('should fail to transfer from zero address', async () => {
-        await expectFail(hds.transferFrom(ZERO_ADDRESS, user1, 1e8, { from: user1 }))
+        await expectThrow(hds.transferFrom(ZERO_ADDRESS, user1, 1e8, { from: user1 }))
     })
 
     it('should fail to transfer to zero address', async () => {
-        await expectFail(hds.transfer(ZERO_ADDRESS, 1e8, { from: user1 }))
+        await expectThrow(hds.transfer(ZERO_ADDRESS, 1e8, { from: user1 }))
     })
 })
 
@@ -145,6 +145,6 @@ contract('HDS:approve', accounts => {
     })
 
     it('should fail to approve to zero address', async () => {
-        await expectFail(hds.transfer(ZERO_ADDRESS, 1e8, { from: admin }))
+        await expectThrow(hds.transfer(ZERO_ADDRESS, 1e8, { from: admin }))
     })
 })

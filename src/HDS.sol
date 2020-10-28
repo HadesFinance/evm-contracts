@@ -155,11 +155,11 @@ contract HDS {
 		uint256 allowed = allowances[src][sender];
 		if (sender != src && allowed != uint256(-1)) {
 			require(allowed >= amount, "HDS/insufficient-allowance");
-			allowances[src][sender] = allowed - amount;
+			allowances[src][sender] = allowed.sub(amount);
 			emit Approval(src, sender, allowances[src][sender]);
 		}
-		balances[src] = balances[src] - amount;
-		balances[dst] = balances[dst] + amount;
+		balances[src] = balances[src].sub(amount);
+		balances[dst] = balances[dst].add(amount);
 		emit Transfer(src, dst, amount);
 
 		_moveDelegates(delegates[src], delegates[dst], amount);
@@ -172,11 +172,11 @@ contract HDS {
 	 * @param amount The number of tokens to mint
 	 */
 	function mint(address src, uint256 amount) external onlySuperior {
-		require(totalSupply + amount <= maxSupply, "HDS/Max supply exceeded");
+		require(totalSupply.add(amount) <= maxSupply, "HDS/Max supply exceeded");
 		require(src != address(0), "HDS/mint to zero address");
 
-		balances[src] = balances[src] + amount;
-		totalSupply = totalSupply + amount;
+		balances[src] = balances[src].add(amount);
+		totalSupply = totalSupply.add(amount);
 		emit Transfer(address(0), src, amount);
 	}
 
@@ -193,11 +193,11 @@ contract HDS {
 		uint256 allowed = allowances[src][sender];
 		if (src != sender && allowed != uint256(-1)) {
 			require(allowed >= amount, "HDS/insufficient-allowance");
-			allowances[src][sender] = allowed - amount;
+			allowances[src][sender] = allowed.sub(amount);
 			emit Approval(src, sender, allowances[src][sender]);
 		}
-		balances[src] = balances[src] - amount;
-		totalSupply = totalSupply - amount;
+		balances[src] = balances[src].sub(amount);
+		totalSupply = totalSupply.sub(amount);
 		emit Transfer(src, address(0), amount);
 	}
 
@@ -305,14 +305,14 @@ contract HDS {
 			if (srcRep != address(0)) {
 				uint32 srcRepNum = numCheckpoints[srcRep];
 				uint256 srcRepOld = srcRepNum > 0 ? checkpoints[srcRep][srcRepNum - 1].votes : 0;
-				uint256 srcRepNew = srcRepOld - amount;
+				uint256 srcRepNew = srcRepOld.sub(amount);
 				_writeCheckpoint(srcRep, srcRepNum, srcRepOld, srcRepNew);
 			}
 
 			if (dstRep != address(0)) {
 				uint32 dstRepNum = numCheckpoints[dstRep];
 				uint256 dstRepOld = dstRepNum > 0 ? checkpoints[dstRep][dstRepNum - 1].votes : 0;
-				uint256 dstRepNew = dstRepOld + amount;
+				uint256 dstRepNew = dstRepOld.add(amount);
 				_writeCheckpoint(dstRep, dstRepNum, dstRepOld, dstRepNew);
 			}
 		}
