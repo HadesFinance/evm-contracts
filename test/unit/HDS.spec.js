@@ -1,8 +1,7 @@
 const HDS = artifacts.require('HDS')
-const BlockchainCaller = require('./util/blockchain-caller');
-const chain = new BlockchainCaller(web3)
+const expectFail = require('./util/expect-fail')
 
-const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
+const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
 let hds
 let admin
@@ -18,12 +17,6 @@ async function deployContracts() {
 async function initializeContracts() {
     await deployContracts()
     await hds.initialize(superior)
-}
-
-async function expectFail(transaction) {
-    expect(
-        await chain.isEthException(transaction)
-      ).to.be.true;
 }
 
 contract('HDS:deploy', accounts => {
